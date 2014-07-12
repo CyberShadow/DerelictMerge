@@ -1,0 +1,4 @@
+*.exe
+
+/query
+/token.txt
