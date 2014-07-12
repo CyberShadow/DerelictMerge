@@ -4,6 +4,8 @@ import std.stdio;
 import std.file;
 import std.string;
 
+enum tokenFileName = "token.txt";
+
 version (AE)
 {
 	import ae.net.asockets;
@@ -15,7 +17,6 @@ version (AE)
 		auto request = new HttpRequest;
 		request.resource = url;
 
-		enum tokenFileName = "token.txt";
 		if (tokenFileName.exists)
 			request.headers["Authorization"] = "token " ~ readText(tokenFileName).strip();
 
@@ -44,7 +45,6 @@ else
 		http = HTTP();
 		http.verifyPeer = false;
 
-		enum tokenFileName = "token.txt";
 		if (tokenFileName.exists)
 			http.addRequestHeader("Authorization", "token " ~ readText(tokenFileName).strip());
 	}
