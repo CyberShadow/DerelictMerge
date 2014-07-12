@@ -63,7 +63,7 @@ void main()
 		auto name = repo["name"].str;
 		//writeln(name, ":");
 		Thread.sleep(1.seconds);
-		auto packages = httpGet("https://api.github.com/repos/DerelictOrg/" ~ name ~ "/contents/source/derelict/").parseJSON().array;
+		auto packages = httpGet("https://api.github.com/repos/DerelictOrg/" ~ name ~ "/contents/source/derelict").parseJSON().array;
 		auto p = packages[0]["name"].str;
 		//foreach (p; packages)
 		//	writeln(p["name"].str);
